@@ -2,7 +2,7 @@
 
 The purpose of this guide is to help people installing MacOS on a Thinkpad L530. This current EFI works like a charm with MacOS Mojave 10.14.6
 
-I haven't tried catalina yet. It was working fine with both Sierra and High Sierra back in the day but i cant confirm if it is still working on previous versions of MacOS. If you want to try other versions, update me if it works ! 
+I haven't tried Catalina yet. It was working fine with both Sierra and High Sierra back in the day but i cant confirm if it is still working on previous versions of MacOS, since my EFI changed a bit and went through a lot of updates. If you want to try other versions, update me if it works ! 
 
 
 I figured out most things by toying with clover bootloader and reading guides. With the latest revisions of the clover bootloader, the process got easier : it no longer needs a custom dsdt for custom brightness range + an injector kext (thanks to whatevergreen), battery etc. 
@@ -68,7 +68,7 @@ Boot Mode : UEFI only, CSM disabled
 
 # Creating a MacOS installer 
 
-Use the method you want to get macOS. To me, the easiest way is to get an Olarila Image, burn it to an usb drive using balena etcher and then replacing the content of its EFI partition with mine. 
+Use the method you prefer to get macOS. To me, the easiest way is to get an Olarila Image, burn it to an usb drive using balena etcher and then replacing the content of its EFI partition with mine. 
 This should be easy using MacOS to make the installer (using a Mac, a VM or even a dirty temporary installation using a distro I won't name here)
 You could probably also do it from Linux or Windows, but I've always been too lazy to try it.
 
@@ -78,12 +78,10 @@ Balena Etcher : https://etcher.io
 
 ESP Mounter pro (to mount the EFI partition) : https://www.olarila.com/topic/4975-esp-mounter-pro-v19/
 
-(Optionnal - you can do this after MacOS is installed) Generate your SMBIOS serial number : Look for a guide if needed.
+(Optionnal - you can do this after MacOS is installed) Generate your SMBIOS serial number : https://hackintosher.com/guides/quick-fixes-facetime-icloud-imessage-hackintosh-not-working/ (number 4 on this guide)
 You can use Clover Configurator to open your Config.plist located in /EFI/Clover/
-The Smbios is ready, (using Macbook Pro 9,1), you just need to generate the Smuuid and your serial number.
 
 If your screen is using an higher resolution than 1366x768, you'll need to change the platform-id in the graphics section of the config.plist to 0x01660004
-
 
 
 # Installing MacOS
@@ -114,6 +112,7 @@ sudo defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int
 
 sudo defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
+You'll have to reboot in order to apply this.
 And while you have the terminal open : 
 
 # Disable Gatekeeper (optional) :
@@ -134,6 +133,20 @@ At this point, everything except for card reader and Wifi/bluetooth should work.
 The card reader worked for me on 10.12.6, but I had to install it to S/L/E and manually input the device id. 
 There is probably a cleaner way of doing this now, but since I don't use the card reader at all, I don't know.
 
+# Audio
+I've tried both AppleHDA back in time and AppleALC. If you want to use appleALC, you should use the layout id 28 prior to mojave. 3 is fine under Mojave.
+I ended up using Voodoo HDA, first because it allows me to boost a bit the audio output, but also because it is the only solution to have a working microphone
+
+# Webcam
+
+I have no webcam on mine. There are several models. It is working OOB, then it is supported.
+
+# Trackpad
+I will update this later.
+The trackpoint is disabled because MacOS is having a hard time with 2 separate PS2 input pointing sources at the same time 
+The same can happen with palm detection, but if you get stuck you can refresh the trackpad by hitting those 3 keys one after another : 
+Left Shift / Maj / Esc
+
 # Using a compatible wifi card
 
 About Wifi/bluetooth, this can be more problematic and harder to achieve and I don't think the way I did this is the easiest.
@@ -142,6 +155,8 @@ But removing the whitelist using a custom bios would be wayyyyy better and maybe
 I flashed the card using linux on another laptop.  
 
 TO BE CONTINUED
+
+
 
 
 
