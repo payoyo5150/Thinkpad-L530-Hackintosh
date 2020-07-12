@@ -1,4 +1,4 @@
-# Thinkpad-L530-Hackintosh
+# Thinkpad L530 Hackintosh
 
 The purpose of this guide is to help people installing MacOS on a Thinkpad L530.
 This current EFI works like a charm with MacOS Mojave 10.14.6
@@ -92,16 +92,25 @@ Once you've reached the desktop you're almost there.
 Use ESP mounter pro again to replace to content of your hard drive's EFI. I highly suggest not mounting both your EFI partitions at the same time (mistakes can happen)
 
 Reboot without the usb stick. Enjoy !
-At this point, everything except for card reader and Wifi/bluetooth should work.
 
-The card reader worked for me on 10.12.6
+# CPU Power management
+
+On my other Thinkpad, I'm using PluginType in the config.plist
+On this one, I've always been using this script to generate an ssdt for power management.
+
+This is the way : 
+https://www.olarila.com/topic/6451-guide-generate-ssdt-for-power-management-with-ssdtprgen/
+
+At this point, everything except for card reader and Wifi/bluetooth should work.
+The card reader worked for me on 10.12.6, but I had to install it to S/L/E and manually input the device id. 
+There is probably a cleaner way of doing this now, but since I don't use the card reader at all, I don't know.
 
 # Using a compatible wifi card
 
 About Wifi/bluetooth, this can be more problematic and harder to achieve and I don't think the way I did this is the easiest.
 The pcie whitelist is still active on my thinkpad but I flashed my Atheros ar9280 EEPROM so the bios would see an intel centrino card instead. Then I used fakePciid so MacOS sees my wifi card for what it really is. The problem is that if you do this, your wifi card will only work on MacOS.
 But removing the whitelist using a custom bios would be wayyyyy better and maybe easier. 
-I did this using linux on another laptop.  
+I flashed the card using linux on another laptop.  
 
 TO BE CONTINUED
 
