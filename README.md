@@ -1,7 +1,7 @@
 # Thinkpad L530 Hackintosh
 
-The purpose of this guide is to help people installing MacOS on a Thinkpad L530.
-This current EFI works like a charm with MacOS Mojave 10.14.6
+The purpose of this guide is to help people installing MacOS on a Thinkpad L530. This current EFI works like a charm with MacOS Mojave 10.14.6
+
 I haven't tried catalina yet. It was working fine with both Sierra and High Sierra back in the day but i cant confirm if it is still working on previous versions of MacOS. If you want to try other versions, update me if it works ! 
 
 
@@ -61,6 +61,7 @@ Boot Mode : UEFI only, CSM disabled
 
 
 # Creating a MacOS installer 
+
 Use the method you want to get macOS. To me, the easiest way is to get an Olarila Image, burn it to an usb drive using balena etcher and then replacing the content of its EFI partition with mine. 
 This should be easy using MacOS to make the installer (using a Mac, a VM or even a dirty temporary installation using a distro I won't name here)
 You could probably also do it from Linux or Windows, but I've always been too lazy to try it.
@@ -95,7 +96,7 @@ Reboot without the usb stick. Enjoy !
 
 # CPU Power management
 
-On my other Thinkpad, I'm using PluginType in the config.plist
+You can't use PluginType with an Ivy Bridge cpu. (only haswell and above)
 On this one, I've always been using this script to generate an ssdt for power management.
 
 This is the way : 
