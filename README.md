@@ -82,6 +82,8 @@ ESP Mounter pro (to mount the EFI partition) : https://www.olarila.com/topic/497
 You can use Clover Configurator to open your Config.plist located in /EFI/Clover/
 The Smbios is ready, (using Macbook Pro 9,1), you just need to generate the Smuuid and your serial number.
 
+If your screen is using an higher resolution than 1366x768, you'll need to change the platform-id in the graphics section of the config.plist to 0x01660004
+
 
 
 # Installing MacOS
