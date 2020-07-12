@@ -36,23 +36,74 @@ I even tried a 3630qm (45w tdp cpu for a 35w tdp laptop). It was overheating, bu
 The 3632qm is the best CPU you can get with the right tdp for this laptop.
 
 
-# BIOS SETTINGS (These are mine, maybe some of them are pointless - always on usb, power on AC etc were bothering sleep at the time)
+# BIOS SETTINGS 
+(These are mine, maybe some of them are pointless - always on usb, power on AC etc were bothering sleep at the time)
+
 Always On USB : disable
+
 Express Card Speed : Automatic 
+
 Power on with AC attach : Disabled
+
 Intel Rapid Start technology : Disabled
+
 Sata controller mode : AHCI
+
 Security Chip : Disabled
+
 Execution prevention : Enabled
+
 Intel Virtualization technology : Enabled (I you are running VM on top of MacOS)
+
 Secure Boot : disabled
 
 Boot Mode : UEFI only, CSM disabled
 
 
 # Creating a MacOS installer 
-Use the method you want to get macOS. To me, the easiest way is to get an Olarila Image, burn it to an usb drive using etcher and then replacing the content of the EFI partition 
+Use the method you want to get macOS. To me, the easiest way is to get an Olarila Image, burn it to an usb drive using balena etcher and then replacing the content of its EFI partition with mine. 
+This should be easy using MacOS to make the installer (using a Mac, a VM or even a dirty temporary installation using a distro I won't name here)
+You could probably also do it from Linux or Windows, but I've always been too lazy to try it.
 
+Olarila images : https://www.olarila.com/topic/6278-new-olarila-images/
+
+Balena Etcher : https://etcher.io
+
+ESP Mounter pro (to mount the EFI partition) : https://www.olarila.com/topic/4975-esp-mounter-pro-v19/
+
+(Optionnal - you can do this after MacOS is installed) Generate your SMBIOS serial number : Look for a guide if needed.
+You can use Clover Configurator to open your Config.plist located in /EFI/Clover/
+The Smbios is ready, (using Macbook Pro 9,1), you just need to generate the Smuuid and your serial number.
+
+
+
+# Installing MacOS
+Note that these informations are for installing MacOS on its own disk. If you want to use the same disk for several OSes, then google is your friend !
+
+You should be able to reach the installer without difficulty. 
+Format the disk to APFS with a guid partition table. 
+Then install MacOS.
+
+It is possible that the PS2 driver won't work only during the install, so better to have USB keyboard and mouse !
+
+# MacOS first boot
+
+Once you've reached the desktop you're almost there. 
+Use ESP mounter pro again to replace to content of your hard drive's EFI. I highly suggest not mounting both your EFI partitions at the same time (mistakes can happen)
+
+Reboot without the usb stick. Enjoy !
+At this point, everything except for card reader and Wifi/bluetooth should work.
+
+The card reader worked for me on 10.12.6
+
+# Using a compatible wifi card
+
+About Wifi/bluetooth, this can be more problematic and harder to achieve and I don't think the way I did this is the easiest.
+The pcie whitelist is still active on my thinkpad but I flashed my Atheros ar9280 EEPROM so the bios would see an intel centrino card instead. Then I used fakePciid so MacOS sees my wifi card for what it really is. The problem is that if you do this, your wifi card will only work on MacOS.
+But removing the whitelist using a custom bios would be wayyyyy better and maybe easier. 
+I did this using linux on another laptop.  
+
+TO BE CONTINUED
 
 
 
