@@ -20,20 +20,26 @@ Some guys with newer L530 flavours got it to work, but I can't garantee my files
 
 
 # MY SPECS :
+
 HM76 Chipset
+
 I7 3632qm
+
 2x8gb DDR3 Corsair Vengeance 1600mhz
+
 Samsung EVO 840 ssd
+
 1366x768 shitty screen
+
 9-cells battery 
+
 Docking station 4337 (only the audio jack won't work on it, but I'm using a Focusrite Scarlett 2i2 when docked)
 
 
-Note that most Intel core cpu will work, but if you have the celeron model, you'll have to toss this (bad) cpu since it isn't supported by MacOS.
+Note that Intel core cpus will work, but if you have the celeron model, you'll have to toss this (bad) cpu since it isn't supported by MacOS.
 but I suggest getting an i7, the 3520m for example if you are low on money (dual core, 2,9ghz)
 
-I even tried a 3630qm (45w tdp cpu for a 35w tdp laptop). It was overheating, but I'm sure that it could be fine with some thermal grizzly paste.
-The 3632qm is the best CPU you can get with the right tdp for this laptop.
+The 3632qm is the best CPU you can get with the right tdp for this laptop, but it could be tricky to find one.
 
 
 # BIOS SETTINGS 
