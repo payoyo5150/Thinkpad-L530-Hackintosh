@@ -154,7 +154,12 @@ Left Shift / Maj / Esc
 About Wifi/bluetooth, this can be more problematic and harder to achieve and I don't think the way I did this is the easiest.
 The pcie whitelist is still active on my thinkpad but I flashed my Atheros ar9280 EEPROM so the bios would see an intel centrino card instead. Then I used fakePciid so MacOS sees my wifi card for what it really is. The problem is that if you do this, your wifi card will only work on MacOS.
 But removing the whitelist using a custom bios flashed with an SPI programmer would be wayyyyy better and maybe easier. 
-I flashed the card using linux on another laptop with no PCIe whitelist.  
+I flashed the card using linux on another laptop with no PCIe whitelist. 
+
+Ar9280 needs AirPortAtheros40.kext from High Sierra for Mojave and above. Airdrop legacy (with Macs but not with iPhones) works for me.
+I suppose you could get a Dw1560 in half-mini otherwise, but I haven't tried.
+
+
 
 TO BE CONTINUED
 
