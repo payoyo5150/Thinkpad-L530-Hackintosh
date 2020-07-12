@@ -19,7 +19,7 @@ Note also that there are several revisions of this model. Mine is 2475A38 (first
 Some guys with newer L530 flavours got it to work, but I can't garantee my files will work with your L530.
 
 
-# MY SPECS :
+# My specs :
 
 HM76 Chipset
 
@@ -96,9 +96,10 @@ It is possible that the PS2 driver won't work only during the install, so better
 # MacOS first boot
 
 Once you've reached the desktop you're almost there. 
-Use ESP mounter pro again to replace to content of your hard drive's EFI. I highly suggest not mounting both your EFI partitions at the same time (mistakes can happen)
+Use ESP mounter pro again to replace to content of your hard drive's EFI with the one from the USB stick. I highly suggest not mounting both your EFI partitions at the same time (mistakes can happen)
 
 Reboot without the usb stick. Enjoy !
+now time for some fine tuning 
 
 # Enable Touch to Click using the MacOS terminal
 
@@ -121,10 +122,9 @@ sudo spctl --master-disable
 # Power Chime On AC (because why not)
 defaults write com.apple.PowerChime ChimeOnAllHardware -bool true; open /System/Library/CoreServices/PowerChime.app &
 
+The AC input connector tends to break on the L530 (Glued mine 2 times already), so an audio feedback is cool.
 
 # CPU Power management
-You can't use PluginType with an Ivy Bridge cpu. (only haswell and above)
-On this one, I've always been using this script to generate an ssdt for power management.
 
 This is the way : 
 https://www.olarila.com/topic/6451-guide-generate-ssdt-for-power-management-with-ssdtprgen/
@@ -134,20 +134,26 @@ The card reader worked for me on 10.12.6, but I had to install it to S/L/E and m
 There is probably a cleaner way of doing this now, but since I don't use the card reader at all, I don't know.
 
 # Audio
-I've tried both AppleHDA back in time and AppleALC. If you want to use appleALC, you should use the layout id 28 prior to mojave. 3 is fine under Mojave.
 I ended up using Voodoo HDA, first because it allows me to boost a bit the audio output, but also because it is the only solution to have a working microphone.
 The kext is in my EFI, but if you want the prefpane use this : https://github.com/chris1111/VoodooHDA-2.9.2-Clover-V15/files/4242657/VoodooHDA.2.9.2.Clover-V15.zip
-(install in EFI mode only)
+(install in UEFI mode only)
+
+I've tried both AppleHDA back in the day and AppleALC. If you want to use appleALC, you should use the layout id 28 prior to mojave. 3 is fine under Mojave. But the microphone won't work.
 
 # Webcam
 
-I have no webcam on mine. Not all L530 have the same webcam. If it is working OOB, then it is supported.
+I have no webcam on mine. Not all L530 have the same webcam model. If it is working OOB, then it is supported.
 
 # Trackpad
-I will update this later.
 The trackpoint is disabled because MacOS is having a hard time with 2 separate PS2 input pointing sources at the same time 
 The same can happen with palm detection, but if you get stuck you can refresh the trackpad by hitting those 3 keys one after another : 
 Left Shift / Maj / Esc
+
+There is a info.plist inside of the kext I modified a lot over the years to improve the trackpad. 
+If someone can achieve better results than me, here is all the information provided by the dev of the kext on how to use the info.plist : https://osxlatitude.com/forums/topic/5966-details-about-the-smart-touchpad-driver-features/
+
+On Mojave, the prefpane for the trackpad is blank because it is recognized as older hardware. I used to import the prefpane from older versions of MacOS, but I stopped doing this a long time ago.
+Some multitouch gestures are working as mouse buttons. (I think they trigger shortcut, they don't behave exactly as they should. 3 fingers drag allows for switching between full screen apps. 
 
 # Using a compatible wifi card
 
