@@ -135,11 +135,13 @@ There is probably a cleaner way of doing this now, but since I don't use the car
 
 # Audio
 I've tried both AppleHDA back in time and AppleALC. If you want to use appleALC, you should use the layout id 28 prior to mojave. 3 is fine under Mojave.
-I ended up using Voodoo HDA, first because it allows me to boost a bit the audio output, but also because it is the only solution to have a working microphone
+I ended up using Voodoo HDA, first because it allows me to boost a bit the audio output, but also because it is the only solution to have a working microphone.
+The kext is in my EFI, but if you want the prefpane use this : https://github.com/chris1111/VoodooHDA-2.9.2-Clover-V15/files/4242657/VoodooHDA.2.9.2.Clover-V15.zip
+(install in EFI mode only)
 
 # Webcam
 
-I have no webcam on mine. There are several models. It is working OOB, then it is supported.
+I have no webcam on mine. Not all L530 have the same webcam. If it is working OOB, then it is supported.
 
 # Trackpad
 I will update this later.
@@ -151,8 +153,8 @@ Left Shift / Maj / Esc
 
 About Wifi/bluetooth, this can be more problematic and harder to achieve and I don't think the way I did this is the easiest.
 The pcie whitelist is still active on my thinkpad but I flashed my Atheros ar9280 EEPROM so the bios would see an intel centrino card instead. Then I used fakePciid so MacOS sees my wifi card for what it really is. The problem is that if you do this, your wifi card will only work on MacOS.
-But removing the whitelist using a custom bios would be wayyyyy better and maybe easier. 
-I flashed the card using linux on another laptop.  
+But removing the whitelist using a custom bios flashed with an SPI programmer would be wayyyyy better and maybe easier. 
+I flashed the card using linux on another laptop with no PCIe whitelist.  
 
 TO BE CONTINUED
 
