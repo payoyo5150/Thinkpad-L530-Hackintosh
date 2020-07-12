@@ -102,8 +102,28 @@ Use ESP mounter pro again to replace to content of your hard drive's EFI. I high
 
 Reboot without the usb stick. Enjoy !
 
-# CPU Power management
+# Enable Touch to Click using the MacOS terminal
 
+(One command at a time)
+
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+
+sudo defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+
+sudo defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+sudo defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+And while you have the terminal open : 
+
+# Disable Gatekeeper (optional) :
+sudo spctl --master-disable
+
+# Power Chime On AC (because why not)
+defaults write com.apple.PowerChime ChimeOnAllHardware -bool true; open /System/Library/CoreServices/PowerChime.app &
+
+
+# CPU Power management
 You can't use PluginType with an Ivy Bridge cpu. (only haswell and above)
 On this one, I've always been using this script to generate an ssdt for power management.
 
