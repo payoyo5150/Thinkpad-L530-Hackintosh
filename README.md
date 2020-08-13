@@ -5,15 +5,13 @@ The purpose of this guide is to help people installing MacOS on a Thinkpad L530.
 I haven't tried Catalina yet. It was working fine with both Sierra and High Sierra back in the day but i cant confirm if it is still working on previous versions of MacOS, since my EFI changed a bit and went through a lot of updates. If you want to try other versions, update me if it works ! 
 
 
-I figured out most things by toying with clover bootloader and reading guides. With the latest revisions of the clover bootloader, the process got easier : it no longer needs a custom dsdt for custom brightness range + an injector kext (thanks to whatevergreen), battery etc. 
-I've been alone with this laptop running MacOS for years, desperatly looking for help. But people only seemed to care for the t430 and the x230 at the time.
+I figured out most things by toying with clover bootloader and reading guides. I've been alone with this laptop running MacOS for years, desperatly looking for help. But people only seemed to care for the t430 and the x230 at the time.
 Now that it works fine, I guess it is time to share my work !
 
 
 Most of what i did to fine tune the laptop was about 2 years ago and I just updated my kexts and bootloader since then. 
 I'm not sure I could do everything again from scratch but I do a lots of backups of my files so I don't have to figure this out again. :)
 Some basic knowledge about hackintosh is needed to do this. Find out for yourselves, I'm not clever enough to do a beginner guide.
-
 
 Note also that there are several revisions of this model. Mine is 2475A38 (first model, june 2012), bios rev 2.70.
 Some guys with newer L530 flavours got it to work, but I can't garantee my files will work with your L530.
@@ -54,7 +52,7 @@ Boot Mode : UEFI only, CSM disabled
 
 # Creating a MacOS installer 
 
-Use the method you prefer to get macOS. Once you have a MacOS install USB stick, mount its EFI, wipe it and replace the files with mine. If you prepare your EFI on MacOS, use ESP mounter to do so.
+Use the method you prefer to get macOS. Once you have a MacOS install USB stick, mount its EFI, wipe it and replace the files with mine. If you prepare your EFI on MacOS, use ESP mounter or Clover Configurator to do so.
 
 ESP Mounter pro (to mount the EFI partition) : https://www.olarila.com/topic/4975-esp-mounter-pro-v19/
 
@@ -65,6 +63,7 @@ If your screen is using an higher resolution than 1366x768, you'll need to chang
 
 
 # Installing MacOS
+
 Note that these informations are for installing MacOS on its own disk. If you want to use the same disk for several OSes, then google is your friend !
 
 You should be able to reach the installer without difficulty. 
@@ -121,11 +120,6 @@ The pcie whitelist is still active on my thinkpad but I flashed my Atheros ar928
 
 But removing the whitelist using a custom bios flashed with an SPI programmer would be wayyyyy better and maybe easier. 
 I flashed the card using linux on another laptop with no PCIe whitelist. 
-
-Ar9280 needs AirPortAtheros40.kext from High Sierra for Mojave and above. Airdrop legacy (with Macs but not with iPhones) works for me.
-I suppose you could get a Dw1560 in half-mini otherwise, but I haven't tried.
-
-
 
 TO BE CONTINUED
 
