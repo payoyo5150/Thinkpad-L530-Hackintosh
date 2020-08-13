@@ -1,9 +1,8 @@
 # Thinkpad L530 Hackintosh
 
-This current EFI works like a charm with MacOS Mojave 10.14.6 (Sleep/wake, Graphics, Power management, Trackpad, Sound, Docking station, USB... except for SD Card Reader)
+The EFI in the release section of this repo works like a charm with MacOS Mojave 10.14.6 (Sleep/wake, Graphics, Power management, Trackpad, Sound, Docking station, ExpressCard, USB... except for the SD Card Reader). Bluetooth and Wifi (with legacy Airdrop support) work for me as well with an AR9280 wifi card, but it is difficult to achieve because of the PCIe Whitelist this laptop has.
 
-I haven't tried Catalina yet. It was working fine with both Sierra and High Sierra back in the day but i cant confirm if it is still working on previous versions of MacOS, since my EFI changed a bit and went through a lot of updates. If you want to try other versions, update me if it works ! 
-
+I haven't tried Catalina yet. It was working fine with both Sierra and High Sierra back in the day but i cant confirm if it is still working on previous versions of MacOS, since my EFI changed a bit and went through a lot of updates.
 I figured out most things by toying with clover bootloader and reading guides. I've been alone with this laptop running MacOS for years, desperatly looking for help. But people only seemed to care for the t430 and the x230 at the time.
 Now that it works fine, I guess it is time to share my work !
 
