@@ -1,17 +1,14 @@
 # Thinkpad L530 Hackintosh
 
-The purpose of this guide is to help people installing MacOS on a Thinkpad L530. This current EFI works like a charm with MacOS Mojave 10.14.6
+This current EFI works like a charm with MacOS Mojave 10.14.6 (Sleep/wake, Graphics, Power management, Trackpad, Sound, Docking station, USB... except for SD Card Reader)
 
 I haven't tried Catalina yet. It was working fine with both Sierra and High Sierra back in the day but i cant confirm if it is still working on previous versions of MacOS, since my EFI changed a bit and went through a lot of updates. If you want to try other versions, update me if it works ! 
-
 
 I figured out most things by toying with clover bootloader and reading guides. I've been alone with this laptop running MacOS for years, desperatly looking for help. But people only seemed to care for the t430 and the x230 at the time.
 Now that it works fine, I guess it is time to share my work !
 
 
-Most of what i did to fine tune the laptop was about 2 years ago and I just updated my kexts and bootloader since then. 
-I'm not sure I could do everything again from scratch but I do a lots of backups of my files so I don't have to figure this out again. :)
-Some basic knowledge about hackintosh is needed to do this. Find out for yourselves, I'm not clever enough to do a beginner guide.
+Some basic knowledge about hackintosh is needed to do this. Find out for yourselves, I'm not clever enough to do a full beginner guide.
 
 Note also that there are several revisions of this model. Mine is 2475A38 (first model, june 2012), bios rev 2.70.
 Some guys with newer L530 flavours got it to work, but I can't garantee my files will work with your L530.
