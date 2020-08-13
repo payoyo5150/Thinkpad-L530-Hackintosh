@@ -52,7 +52,7 @@ Boot Mode : UEFI only, CSM disabled
 
 # Creating a MacOS installer 
 
-Use the method you prefer to get macOS. Once you have a MacOS install USB stick, mount its EFI, wipe it and replace the files with mine. If you prepare your EFI on MacOS, use ESP mounter or Clover Configurator to do so.
+Use the method you prefer to get macOS. Once you have a MacOS install USB stick, mount its EFI, wipe it and replace the files with mine (in the "Release" section on the right). If you prepare your EFI on MacOS, use ESP mounter or Clover Configurator to do so. 
 
 ESP Mounter pro (to mount the EFI partition) : https://www.olarila.com/topic/4975-esp-mounter-pro-v19/
 
@@ -115,11 +115,12 @@ activate inertia, and set the scrolling speed all the way up
 
 # Using a compatible wifi card
 
-About Wifi/bluetooth, this can be more problematic and harder to achieve and I don't think the way I did this is the easiest.
-The pcie whitelist is still active on my thinkpad but I flashed my Atheros ar9280 EEPROM so the bios would see an intel centrino card instead. Then I used fakePciid so MacOS sees my wifi card for what it really is. The problem is that if you do this, your wifi card will only work on MacOS.
+About Wifi/bluetooth, this can be more problematic and harder to achieve and I don't think the way I did this is the easiest. I flashed the card using linux on another laptop with no PCIe whitelist. The pcie whitelist is still active on my thinkpad but I flashed my Atheros ar9280 EEPROM so the bios would see an intel centrino card instead. Then I used fakePciid so MacOS sees my wifi card for what it really is. The problem is that if you do this, your wifi card will only work on MacOS.
+
+Here's a guide : https://github.com/nouatzi/AR9285-rebranding
 
 But removing the whitelist using a custom bios flashed with an SPI programmer would be wayyyyy better and maybe easier. 
-I flashed the card using linux on another laptop with no PCIe whitelist. 
+
 
 TO BE CONTINUED
 
