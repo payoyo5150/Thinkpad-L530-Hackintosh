@@ -21,20 +21,7 @@ Some guys with newer L530 flavours got it to work, but I can't garantee my files
 
 # My specs :
 
-HM76 Chipset
-
-I7 3632qm
-
-2x8gb DDR3 Corsair Vengeance 1600mhz
-
-Samsung EVO 840 ssd
-
-1366x768 shitty screen
-
-9-cells battery 
-
-Docking station 4337 (only the audio jack won't work on it, but I'm using a Focusrite Scarlett 2i2 when docked)
-
+HM76 Chipset / I7 3632qm / 2x8gb DDR3 Corsair Vengeance 1600mhz / Samsung EVO 840 ssd / 1366x768 shitty screen / 9-cells battery / Docking station 4337 (only the audio jack won't work on it, but I'm using a Focusrite Scarlett 2i2 when docked)
 
 Note that Intel core cpus will work, but if you have the celeron model, you'll have to toss this (bad) cpu since it isn't supported by MacOS.
 but I suggest getting an i7, the 3520m for example if you are low on money (dual core, 2,9ghz)
@@ -43,7 +30,6 @@ The 3632qm is the best CPU you can get with the right tdp for this laptop, but i
 
 
 # BIOS SETTINGS 
-(These are mine, maybe some of them are pointless - always on usb, power on AC etc were bothering sleep at the time)
 
 Always On USB : disable
 
@@ -68,13 +54,7 @@ Boot Mode : UEFI only, CSM disabled
 
 # Creating a MacOS installer 
 
-Use the method you prefer to get macOS. To me, the easiest way is to get an Olarila Image, burn it to an usb drive using balena etcher and then replacing the content of its EFI partition with mine. 
-This should be easy using MacOS to make the installer (using a Mac, a VM or even a dirty temporary installation using a distro I won't name here)
-You could probably also do it from Linux or Windows, but I've always been too lazy to try it.
-
-Olarila images : https://www.olarila.com/topic/6278-new-olarila-images/
-
-Balena Etcher : https://etcher.io
+Use the method you prefer to get macOS. Once you have a MacOS install USB stick, mount its EFI, wipe it and replace the files with mine. If you prepare your EFI on MacOS, use ESP mounter to do so.
 
 ESP Mounter pro (to mount the EFI partition) : https://www.olarila.com/topic/4975-esp-mounter-pro-v19/
 
@@ -101,28 +81,13 @@ Use ESP mounter pro again to replace to content of your hard drive's EFI with th
 Reboot without the usb stick. Enjoy !
 now time for some fine tuning 
 
-# Enable Touch to Click using the MacOS terminal
-
-(One command at a time)
-
-defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
-
-sudo defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-
-sudo defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-
-sudo defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-
-You'll have to reboot in order to apply this.
-And while you have the terminal open : 
-
-# Disable Gatekeeper (optional) :
+# Terminal : Disable Gatekeeper (optional) :
 sudo spctl --master-disable
 
-# Power Chime On AC (because why not)
+# Terminal : Power Chime On AC (because why not)
 defaults write com.apple.PowerChime ChimeOnAllHardware -bool true; open /System/Library/CoreServices/PowerChime.app &
 
-The AC input connector tends to break on the L530 (Glued mine 2 times already), so an audio feedback is cool.
+The AC input connector tends to break on the L530 (Glued mine 2 times already - Update, 3 times), so an audio feedback is cool.
 
 # CPU Power management
 
@@ -145,20 +110,15 @@ I've tried both AppleHDA back in the day and AppleALC. If you want to use appleA
 I have no webcam on mine. Not all L530 have the same webcam model. If it is working OOB, then it is supported.
 
 # Trackpad
-The trackpoint is disabled because MacOS is having a hard time with 2 separate PS2 input pointing sources at the same time 
-The same can happen with palm detection, but if you get stuck you can refresh the trackpad by hitting those 3 keys one after another : 
-Left Shift / Maj / Esc
 
-There is a info.plist inside of the kext I modified a lot over the years to improve the trackpad. 
-If someone can achieve better results than me, here is all the information provided by the dev of the kext on how to use the info.plist : https://osxlatitude.com/forums/topic/5966-details-about-the-smart-touchpad-driver-features/
-
-On Mojave, the prefpane for the trackpad is blank because it is recognized as older hardware. I used to import the prefpane from older versions of MacOS, but I stopped doing this a long time ago.
-Some multitouch gestures are working as mouse buttons. (I think they trigger shortcut, they don't behave exactly as they should. 3 fingers drag allows for switching between full screen apps. 
+go te system preferences > accessibility > mouse & trackpad > trackpad options 
+activate inertia, and set the scrolling speed all the way up
 
 # Using a compatible wifi card
 
 About Wifi/bluetooth, this can be more problematic and harder to achieve and I don't think the way I did this is the easiest.
 The pcie whitelist is still active on my thinkpad but I flashed my Atheros ar9280 EEPROM so the bios would see an intel centrino card instead. Then I used fakePciid so MacOS sees my wifi card for what it really is. The problem is that if you do this, your wifi card will only work on MacOS.
+
 But removing the whitelist using a custom bios flashed with an SPI programmer would be wayyyyy better and maybe easier. 
 I flashed the card using linux on another laptop with no PCIe whitelist. 
 
